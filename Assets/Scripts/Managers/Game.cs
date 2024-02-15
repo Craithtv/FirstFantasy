@@ -49,11 +49,14 @@ public class Game : MonoBehaviour
 
     private void StartBattle()
     {
-        SceneManager.LoadScene(2);
+        State = GameState.Battle;
+        SceneLoader.LoadBattleScene();
     }
 
     private void EndBattle()
     {
-         SceneManager.LoadScene(1);
+        SceneLoader.ReloadSavedScenePostBattle();
+        State = GameState.World;
     }
+   
 }

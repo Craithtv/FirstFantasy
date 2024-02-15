@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.TextCore.Text;
 using UnityEditor.Build;
 using UnityEditor.Experimental.GraphView;
+using System.Data;
 
 public class CharacterTests
 {
@@ -16,7 +17,7 @@ public class CharacterTests
     [OneTimeSetUp]
     public void LoadTestScene()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
         SceneManager.sceneLoaded += SceneReady;
     }
 
@@ -25,6 +26,8 @@ public class CharacterTests
         sut = GameObject.FindObjectOfType<Player>();
         Debug.Log(sut.name);
         isReady = true;
+
+        //SceneManager.sceneLoaded -= SceneReady;
     }
 
     [UnityTest]
@@ -60,5 +63,40 @@ public class CharacterTests
        yield return new WaitForSeconds(1f);
        Assert.AreEqual(current + Direction.Up, sut.CurrentCell);
 
+    }
+
+    [UnityTest]
+    public IEnumerator Character_facing_updates_correctly()
+    {
+        while (!isReady) yield return null;
+
+        sut.Turn.Turn(Direction.Down);
+        Assert.AreEqual(Direction.Down, sut.Facing);
+
+        sut.Turn.Turn(Direction.Left);
+        Assert.AreEqual(Direction.Left, sut.Facing);
+
+        sut.Turn.Turn(Direction.Right);
+        Assert.AreEqual(Direction.Right, sut.Facing);
+
+        sut.Turn.Turn(Direction.Up);
+        Assert.AreEqual(Direction.Up, sut.Facing);
+    }
+
+    [UnityTest]
+    public IEnumerator Updates_map_dictionary()
+    {
+        while (!isReady) yield return null;
+        Vector2Int originalCell = sut.CurrentCell;
+
+        Assert.IsTrue(Game.Map.OccupiedCells.ContainsKey(originalCell));
+        Assert.AreEqual(sut, Game.Map.OccupiedCells[originalCell]);
+
+        sut.Move.TryMove(Direction.Left);
+        yield return new WaitForSeconds(1f);
+        
+        Assert.IsTrue(Game.Map.OccupiedCells.ContainsKey(sut.CurrentCell));
+        Assert.IsFalse(Game.Map.OccupiedCells.ContainsKey(originalCell));
+        Assert.AreEqual(sut, Game.Map.OccupiedCells[sut.CurrentCell]);
     }
 }
