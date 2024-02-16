@@ -8,6 +8,7 @@ public abstract class Actor : MonoBehaviour
     protected Vector2 battlePos = new Vector2(0, 0);
     protected Vector2 startingPos;
     public bool IsTakingTurn {get; protected set;} = false;
+    public BattleStats Stats {get; set;}
 
     protected virtual void Start()
     {

@@ -11,9 +11,12 @@ public static class Party
 
     static Party()
     {
-        PartyMember John = new PartyMember(Resources.Load<GameObject>("PartyBattlerPrefabs/Party1"));
-        PartyMember Dean = new PartyMember(Resources.Load<GameObject>("PartyBattlerPrefabs/Party1"));
-        PartyMember Sammy = new PartyMember(Resources.Load<GameObject>("PartyBattlerPrefabs/Party1"));
+        BattleStats johnStats = new BattleStats (10, 10, 3, 2, 3);
+        BattleStats deanStats = new BattleStats (10, 10, 3, 2, 8);
+        BattleStats sammyStats = new BattleStats (10, 10, 3, 2, 10);
+        PartyMember John = new PartyMember(Resources.Load<GameObject>("PartyBattlerPrefabs/Party1"), johnStats);
+        PartyMember Dean = new PartyMember(Resources.Load<GameObject>("PartyBattlerPrefabs/Party1"), deanStats);
+        PartyMember Sammy = new PartyMember(Resources.Load<GameObject>("PartyBattlerPrefabs/Party1"), sammyStats);
 
         activeMembers.Add(John);
         activeMembers.Add(Dean);

@@ -39,7 +39,8 @@ public class Game : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.B))
         {
-            StartBattle();
+            BattleManager.enemyPack = Resources.Load<EnemyPack>("ScriptableObjects/EnemyPacks/TestPack");
+            StartCoroutine(StartBattle());
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -47,9 +48,11 @@ public class Game : MonoBehaviour
         }
     }
 
-    private void StartBattle()
+    private IEnumerator StartBattle()
     {
         State = GameState.Battle;
+        Instantiate(Resources.Load<GameObject>("BattleTransition"), Player.transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(1.5f);
         SceneLoader.LoadBattleScene();
     }
 
