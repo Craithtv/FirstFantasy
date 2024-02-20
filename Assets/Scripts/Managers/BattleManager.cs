@@ -45,7 +45,7 @@ public class BattleManager : MonoBehaviour
         {
             GameObject partyMember = Instantiate(member.actorPrefab, spawnPos, Quaternion.identity);
             Ally ally = partyMember.GetComponent<Ally>();
-            ally.Stats = member.Stats;
+            ally.Stats = member.stats;
             turnOrder.Add(ally);
             spawnPos.y += 2;
             

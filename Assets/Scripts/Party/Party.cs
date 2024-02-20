@@ -11,16 +11,16 @@ public static class Party
 
     static Party()
     {
-        BattleStats johnStats = new BattleStats (10, 10, 3, 2, 3);
-        BattleStats deanStats = new BattleStats (10, 10, 3, 2, 8);
-        BattleStats sammyStats = new BattleStats (10, 10, 3, 2, 10);
-        PartyMember John = new PartyMember(Resources.Load<GameObject>("PartyBattlerPrefabs/Party1"), johnStats);
-        PartyMember Dean = new PartyMember(Resources.Load<GameObject>("PartyBattlerPrefabs/Party1"), deanStats);
-        PartyMember Sammy = new PartyMember(Resources.Load<GameObject>("PartyBattlerPrefabs/Party1"), sammyStats);
+        BattleStats thythorStats = new BattleStats (5, 0, 27, 10, 13, 14);
+       
+        PartyMember thythor = new PartyMember(
+            "Thythor",
+            null,
+            "Warlock",
+            Resources.Load<GameObject>("PartyBattlerPrefabs/Party1"), 
+            thythorStats);
 
-        activeMembers.Add(John);
-        activeMembers.Add(Dean);
-        activeMembers.Add(Sammy);
+        activeMembers.Add(thythor);
     }
 
     public static void AddActiveMember(PartyMember memberToAdd)
