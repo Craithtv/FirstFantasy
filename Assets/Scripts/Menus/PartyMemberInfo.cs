@@ -23,26 +23,27 @@ public class PartyMemberInfo : MonoBehaviour
     
     void Start()
     {
-        partyMember = Party.ActiveMembers[0];
+        int siblingIndex = this.gameObject.transform.GetSiblingIndex();
+        partyMember = Party.ActiveMembers[siblingIndex];
         memberName.text = partyMember.name;
-        memberPortrait = partyMember.portrait;
+        memberPortrait.sprite = partyMember.Portrait;
         GetStats();
     }
 
     public void GetStats()
     {
-        string levelJob = $"Level {partyMember.stats.LVL} {partyMember.job}";
+        string levelJob = $"Level {partyMember.Stats.LVL} {partyMember.Job}";
         memberLevelClass.text = levelJob;
 
-        memberHP.text = $"HP: {partyMember.stats.HP.ToString()}/{partyMember.stats.MaxHp}";
+        memberHP.text = $"HP: {partyMember.Stats.HP.ToString()}/{partyMember.Stats.MaxHp}";
         memberMana.text = "MP 3/4";
 
-        memberBaseSTR.text = partyMember.stats.STR.ToString();
-        memberBaseSPD.text = partyMember.stats.SPD.ToString();
-        memberBaseDEF.text = partyMember.stats.DEF.ToString();
+        memberBaseSTR.text = $"STR: {partyMember.Stats.STR}";
+        memberBaseSPD.text = $"SPD: {partyMember.Stats.SPD}";
+        memberBaseDEF.text = $"DEF: {partyMember.Stats.DEF}";
 
-        memberEquipdSTR.text = partyMember.stats.STR.ToString();
-        memberEquipdSPD.text = partyMember.stats.SPD.ToString();
-        memberEquipdDEF.text = partyMember.stats.DEF.ToString();
+        memberEquipdSTR.text = $"STR: +{partyMember.Stats.STR}";
+        memberEquipdSPD.text = $"SPD: +{partyMember.Stats.SPD}";
+        memberEquipdDEF.text = $"DEF: +{partyMember.Stats.DEF}";
     }
 }
