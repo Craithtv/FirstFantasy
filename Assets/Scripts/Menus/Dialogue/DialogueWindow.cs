@@ -11,11 +11,14 @@ public class DialogueWindow : MonoBehaviour
     [SerializeField] private TextMeshProUGUI speaker;
     [SerializeField] private TextMeshProUGUI message;
 
+    private Animator animator;
+    private string dialogueOpenParam = "dialogueOpen";
+
     private int currentSceneDialogueIndex = 0;
 
-    private void Start() 
+    private void Awake()
     {
-        DisplayDialogue(scene.Dialogues[currentSceneDialogueIndex]);
+        animator = GetComponent<Animator>();
     }
 
     private void Update() 
@@ -29,9 +32,18 @@ public class DialogueWindow : MonoBehaviour
             }
             else
             {
+                Close();
                 Debug.Log("Convo over");
             }
         }
+    }
+
+    public void Open(DialogueScene sceneToPlay)
+    {
+        scene = sceneToPlay;
+        currentSceneDialogueIndex = 0;
+        DisplayDialogue(scene.Dialogues[currentSceneDialogueIndex]);
+        animator.SetBool(dialogueOpenParam, true);
     }
 
     private void DisplayDialogue(Dialogue dialogue)
@@ -39,6 +51,13 @@ public class DialogueWindow : MonoBehaviour
         portrait.sprite = dialogue.Sprite;
         speaker.text = dialogue.Speaker;
         message.text = dialogue.Message;
+
+    }
+
+    private void Close()
+    {
+        animator.SetBool(dialogueOpenParam, false);
+        Game.EndDialogue();
 
     }
 }

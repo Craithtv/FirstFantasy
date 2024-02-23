@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9056586415076680318}
   - component: {fileID: 9056586415076680313}
   - component: {fileID: 9056586415076680312}
-  - component: {fileID: 9056586415076680319}
+  - component: {fileID: 2874428684489642609}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -106,7 +106,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &9056586415076680319
+--- !u!114 &2874428684489642609
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,9 +118,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 684a38f5abac88f4d9013fe3a08e1bf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interaction: {fileID: 11400000, guid: ec587b88bcec46944b5124b9cb338888, type: 2}
-  moveRoute: 000000000100000002000000
-  delay: 1
+  interaction: {fileID: 0}
+  moveRoute: 
+  delay: 0
   neverMoves: 0
   movesRandomly: 0
   moveRouteLoops: 0

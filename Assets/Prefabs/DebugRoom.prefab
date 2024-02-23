@@ -2287,6 +2287,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 149614782752035074}
     m_Modifications:
+    - target: {fileID: 2874428684489642609, guid: 105330a35c66e3141b78185dcb4ad0af, type: 3}
+      propertyPath: delay
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2874428684489642609, guid: 105330a35c66e3141b78185dcb4ad0af, type: 3}
+      propertyPath: neverMoves
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2874428684489642609, guid: 105330a35c66e3141b78185dcb4ad0af, type: 3}
+      propertyPath: interaction
+      value: 
+      objectReference: {fileID: 11400000, guid: 917a30d24c131344a909a8098c1d2ed1, type: 2}
+    - target: {fileID: 2874428684489642609, guid: 105330a35c66e3141b78185dcb4ad0af, type: 3}
+      propertyPath: moveRoute.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2874428684489642609, guid: 105330a35c66e3141b78185dcb4ad0af, type: 3}
+      propertyPath: moveRoute.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2874428684489642609, guid: 105330a35c66e3141b78185dcb4ad0af, type: 3}
+      propertyPath: moveRoute.Array.data[2]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2874428684489642609, guid: 105330a35c66e3141b78185dcb4ad0af, type: 3}
+      propertyPath: moveRoute.Array.data[3]
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9056586415076680314, guid: 105330a35c66e3141b78185dcb4ad0af, type: 3}
       propertyPath: m_Name
       value: NPC
@@ -2342,6 +2370,10 @@ PrefabInstance:
     - target: {fileID: 9056586415076680319, guid: 105330a35c66e3141b78185dcb4ad0af, type: 3}
       propertyPath: neverMoves
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9056586415076680319, guid: 105330a35c66e3141b78185dcb4ad0af, type: 3}
+      propertyPath: interaction
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 9056586415076680319, guid: 105330a35c66e3141b78185dcb4ad0af, type: 3}
       propertyPath: movesRandomly
