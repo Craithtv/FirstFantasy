@@ -5,8 +5,13 @@ using UnityEngine;
 public class mainMenu : MonoBehaviour
 {
     private Animator animator;
-    private string menuOpenParameter = "menuOpen";
-    private bool isMenuOpen => Game.State == GameState.Menu;
+    private string menuOpenAnim = "MenuOpen";
+    private string menuCloseAnim = "MenuClose";
+
+    public bool IsOpen{ get; private set;}
+    [SerializeField] public bool IsAnimating => animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0 && animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1;
+
+    //private bool isMenuOpen => Game.State == GameState.Menu;
 
     private void Awake() 
     {
@@ -14,17 +19,25 @@ public class mainMenu : MonoBehaviour
     }
     private void Update() 
     {
-        animator.SetBool(menuOpenParameter, isMenuOpen);
+        // animator.SetBool(menuOpenParameter, isMenuOpen);
 
-        if (Input.GetKeyDown(KeyCode.Escape) && isMenuOpen)
-        {
-            StartCoroutine(CloseMenu());
-        }
+        // if (Input.GetKeyDown(KeyCode.Escape) && isMenuOpen)
+        // {
+        //     StartCoroutine(CloseMenu());
+        // }
     }
 
-    private IEnumerator CloseMenu()
+    public void OpenMenu()
     {
-        yield return null;
-        Game.CloseMenu();
+        Debug.Log("playing open menu");
+        IsOpen = true;
+        animator.Play(menuOpenAnim);
+    }
+
+    public void CloseMenu()
+    {
+        Debug.Log("playing closing menu");
+        IsOpen = false;
+        animator.Play(menuCloseAnim);
     }
 }

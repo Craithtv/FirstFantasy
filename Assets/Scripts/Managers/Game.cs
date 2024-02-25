@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.YamlDotNet.Serialization;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,12 +15,28 @@ public enum GameState
 public class Game : MonoBehaviour
 {
     private static DialogueWindow dialogueWindow;
+    public static mainMenu mainMenu;
     public static GameState State {get; private set;}
     public static Map Map {get; private set;}
     public static Player Player {get; private set;}
    
-    public static void OpenMenu() => State = GameState.Menu;
-    public static void CloseMenu() => State = GameState.World;
+    public static void ToggleMenu()
+    {
+        if (mainMenu.IsAnimating)
+            return;
+        if (mainMenu.IsOpen)
+        {
+            Debug.Log("closing menu");
+            State = GameState.World;
+            mainMenu.CloseMenu();
+        }
+        else
+        {
+            Debug.Log("open menu");
+            State = GameState.Menu;
+            mainMenu.OpenMenu();
+        }
+    }
     public static void StartDialogue(DialogueScene sceneToPlay)
     {
         State = GameState.Cutscene;
@@ -29,6 +46,7 @@ public class Game : MonoBehaviour
     {
         State = GameState.World;
     }
+
     [SerializeField] private Map startingMap;
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private Vector2Int startingCell;
@@ -37,6 +55,8 @@ public class Game : MonoBehaviour
     private void Awake()
     {
         dialogueWindow = FindObjectOfType<DialogueWindow>();
+        mainMenu = FindObjectOfType<mainMenu>();
+
         if (Map == null)
         {
            Map = Instantiate(startingMap);
@@ -48,6 +68,7 @@ public class Game : MonoBehaviour
         }
         DontDestroyOnLoad(this);
         DontDestroyOnLoad(Player);
+        DontDestroyOnLoad(Map);
     }
 
     private void Update()

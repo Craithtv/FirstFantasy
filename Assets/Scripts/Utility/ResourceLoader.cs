@@ -18,6 +18,8 @@ public static class ResourceLoader
     public static string Korb = partyMemberPath + "Korburina";
     public static string Saph = partyMemberPath + "Saphielle";
     public static string Thy = partyMemberPath + "Thythor";
+    public static string Zaash = partyMemberPath + "Zaasher";
+
 
     //other
     public static string BattleTransition = "BattleTransition";

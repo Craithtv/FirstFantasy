@@ -13,24 +13,35 @@ public static class SceneLoader
 
     public static void LoadBattleScene()
     {
+        Game.Map.gameObject.SetActive(false);
         //caches the player's current info
         savedSceneBuildIndex = SceneManager.GetActiveScene().buildIndex;
         savedPlayerLocation = Game.Player.CurrentCell.Center2D();
 
-        Game.Player.gameObject.SetActive(false);
         SceneManager.LoadScene(battleSceneBuildIndex);
+        SceneManager.sceneLoaded += DisabledPlayerObject;
     }
 
     public static void ReloadSavedScenePostBattle()
     {
-        SceneManager.sceneLoaded += RestorePlayer;
+        SceneManager.sceneLoaded += RestoreMapAndPlayer;
+        if (savedSceneBuildIndex == 0)
+        {
+            savedSceneBuildIndex++;
+        }
         SceneManager.LoadScene(savedSceneBuildIndex);
     }
 
-    public static void RestorePlayer(Scene scene, LoadSceneMode mode)
+    public static void RestoreMapAndPlayer(Scene scene, LoadSceneMode mode)
     {
+        Game.Map.gameObject.SetActive(true);
         Game.Player.transform.position = savedPlayerLocation;
         Game.Player.gameObject.SetActive(true);
-        SceneManager.sceneLoaded -= RestorePlayer;
+        SceneManager.sceneLoaded -= RestoreMapAndPlayer;
+    }
+
+    public static void DisabledPlayerObject(Scene scene, LoadSceneMode mode)
+    {
+        Game.Player.gameObject.SetActive(false);
     }
 }
