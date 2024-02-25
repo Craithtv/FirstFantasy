@@ -18,9 +18,9 @@ public static class Party
         PartyMember Thy = ResourceLoader.Load<PartyMember>(ResourceLoader.Thy);
         PartyMember Zaash = ResourceLoader.Load<PartyMember>(ResourceLoader.Zaash);
         AddActiveMember(Korb);
-        AddActiveMember(Saph);
-        AddActiveMember(Thy);
-        AddActiveMember(Zaash);
+        //AddActiveMember(Saph);
+        //AddActiveMember(Thy);
+        //AddActiveMember(Zaash);
         // BattleStats thythorStats = new BattleStats (5, 0, 27, 10, 13, 14);
        
         // PartyMember thythor = new PartyMember(

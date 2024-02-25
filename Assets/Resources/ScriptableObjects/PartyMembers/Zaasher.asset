@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf1f05d692fe49a4bb13e72ba012c892, type: 3}
   m_Name: Zaasher
   m_EditorClassIdentifier: 
-  displayName: 
-  actorPrefab: {fileID: 0}
+  displayName: Zaasher
+  actorPrefab: {fileID: 2077470670198663895, guid: 839153ebe9b28b547923c16abb8e88cc, type: 3}
   stats:
-    level: 0
-    hp: 0
-    maxHp: 0
-    str: 0
-    def: 0
-    spd: 0
-  portrait: {fileID: 0}
-  job: BAMF
+    level: 5
+    hp: 31
+    maxHp: 34
+    str: 16
+    def: 14
+    spd: 9
+  portrait: {fileID: 21300000, guid: aa02d92593c9f9842a393d55b949cbaf, type: 3}
+  job: Fighter
