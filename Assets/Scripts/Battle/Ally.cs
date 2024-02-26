@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Ally : Actor
+namespace Battle
+{public class Ally : Actor
 {
     //specific Actor for a party memb
 
@@ -54,4 +54,5 @@ public class Ally : Actor
         }
         IsTakingTurn = false;
     }
+}
 }

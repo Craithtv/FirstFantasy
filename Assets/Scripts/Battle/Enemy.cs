@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Enemy : Actor
+namespace Battle
+{public class Enemy : Actor
 {
     //specific Actor for a party memb
 
@@ -54,4 +54,5 @@ public class Enemy : Actor
         }
         IsTakingTurn = false;
     }
+}
 }

@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using PlasticPipe.PlasticProtocol.Messages;
 using UnityEngine;
-
-[System.Serializable]
+namespace Battle
+{
+    [System.Serializable]
 
 public class BattleStats
 {
@@ -37,7 +38,7 @@ public class BattleStats
     get => level;
     set
     {
-        level = Mathf.Clamp(value, 0, MAXIMUM_POSSIBLE_LVL);
+        level = Mathf.Clamp(value, 1, MAXIMUM_POSSIBLE_LVL);
     }
    }
 
@@ -85,4 +86,5 @@ public class BattleStats
         spd = Mathf.Clamp(value, 0, MAXIMUM_POSSIBLE_SPD);
     }
    }
+}
 }

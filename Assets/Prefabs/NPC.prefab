@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 684a38f5abac88f4d9013fe3a08e1bf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interaction: {fileID: 0}
+  interaction: {fileID: 11400000, guid: 917a30d24c131344a909a8098c1d2ed1, type: 2}
   moveRoute: 
   delay: 0
   neverMoves: 0

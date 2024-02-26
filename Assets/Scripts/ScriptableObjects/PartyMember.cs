@@ -4,6 +4,7 @@ using System.ComponentModel;
 using Codice.Client.Common;
 using UnityEngine;
 using UnityEngine.UI;
+using Battle;
 
 [CreateAssetMenu(fileName ="New Party Member", menuName = "New Party Member")]
 
