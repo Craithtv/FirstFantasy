@@ -78,7 +78,7 @@ namespace Core
 
         if(character is Player player)
         {
-            player.CheckCurrentCell();
+            player.OnMovementFinished();
         }
     }
 }

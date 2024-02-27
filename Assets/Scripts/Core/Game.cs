@@ -4,6 +4,7 @@ using Codice.CM.Common.Merge;
 using Unity.VisualScripting.YamlDotNet.Serialization;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
 using Battle;
 
 namespace Core
@@ -102,12 +103,16 @@ public class Game : MonoBehaviour
         dialogueWindow.GoToNextLine();
     }
 
-    public void LoadMap(Map newMap, Vector2Int destinationCell)
+    public void LoadMap(Map newMap, int destinationId)
     {
         Map oldMap = Map;
         Map = Instantiate(newMap);
         Destroy(oldMap.gameObject);
-        Player.transform.position = destinationCell.Center2D();
+       
+       Transfer[] transfers = FindObjectsOfType<Transfer>();
+       Transfer transfer = transfers.Where(transfer => transfer.Id == destinationId).ToList().FirstOrDefault();
+
+       Player.transform.position = transfer.Cell.Center2D();
     }
    
 }

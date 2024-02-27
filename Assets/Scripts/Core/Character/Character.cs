@@ -17,6 +17,7 @@ public abstract class Character : MonoBehaviour
     public bool IsMoving => Movement.isMoving;
     public Vector2Int Facing => Turner.facing;
     public Vector2Int CurrentCell => Game.Manager.Map.Grid.GetCell2D(this.gameObject);
+    public Map map => Game.Manager.Map;
 
     protected virtual void Awake() 
     {
@@ -26,7 +27,7 @@ public abstract class Character : MonoBehaviour
     }
     protected virtual void Start()
     {
-        transform.position = Game.Manager.Map.Grid.GetCellCenter2D(CurrentCell); //places us in center of grid
+        transform.position = map.Grid.GetCellCenter2D(CurrentCell); //places us in center of grid
         Game.Manager.Map.OccupiedCells.Add(CurrentCell, this);
     }
 
