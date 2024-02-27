@@ -101,6 +101,14 @@ public class Game : MonoBehaviour
         }
         dialogueWindow.GoToNextLine();
     }
+
+    public void LoadMap(Map newMap, Vector2Int destinationCell)
+    {
+        Map oldMap = Map;
+        Map = Instantiate(newMap);
+        Destroy(oldMap.gameObject);
+        Player.transform.position = destinationCell.Center2D();
+    }
    
 }
 }

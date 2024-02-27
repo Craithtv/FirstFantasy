@@ -12,17 +12,27 @@ namespace Core
         base.Awake();
         InputHandler = new InputHandler(this);
     }
-    // Start is called before the first frame update
+  
     protected override void Start()
     {
          base.Start();
     }
 
-    // Update is called once per frame
+    
     protected override void Update()
     {
         base.Update();
         InputHandler.CheckInput();
     }
+
+    public void CheckCurrentCell()
+    {
+        if (Game.Manager.Map.Exits.ContainsKey(CurrentCell))
+        {
+            Exit exit = Game.Manager.Map.Exits[CurrentCell];
+            exit.TeleportPlayer();
+        }
+    }
+    
 }
 }

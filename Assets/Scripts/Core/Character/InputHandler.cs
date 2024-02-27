@@ -8,7 +8,7 @@ namespace Core
     {
         private Player player;
         private Command command;
-        private Map map;
+        private Map map => Game.Manager.Map;
 
         private enum Command
         {
@@ -25,7 +25,7 @@ namespace Core
         public InputHandler(Player player)
         {
             this.player = player;
-            map = Game.Manager.Map;
+           
         }
 
         public void CheckInput()
