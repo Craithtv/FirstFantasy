@@ -13,12 +13,14 @@ namespace Core
 public class Game : MonoBehaviour
 {
     public static Game Manager {get; private set;}
+
     [SerializeField] private Map startingMap;
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private Vector2Int startingCell;
     [SerializeField] private DialogueWindow dialogueWindow;
     [SerializeField] public mainMenu mainMenu;
     [SerializeField] private GameObject battleTransitionPrefab;
+
     public GameState State {get; private set;}
     public Map Map {get; private set;}
     public Player Player {get; private set;}
@@ -35,16 +37,20 @@ public class Game : MonoBehaviour
             Manager = this;
         }
 
+        Map = Instantiate(startingMap);
+        Player = Instantiate(playerPrefab, startingCell.Center2D(), Quaternion.identity).GetComponent<Player>();
+        DontDestroyOnLoad(Player);
         DontDestroyOnLoad(this);
         
     }
 
-    private void Start() 
+    private void Update() 
     {
-        Map = Instantiate(startingMap);
-        Player = Instantiate(playerPrefab, startingCell.Center2D(), Quaternion.identity).GetComponent<Player>();
-        DontDestroyOnLoad(Player);
-        DontDestroyOnLoad(Map);
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("Ending battle");
+            Game.Manager.EndBattle();
+        }
     }
 
 

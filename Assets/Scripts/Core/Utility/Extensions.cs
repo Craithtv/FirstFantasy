@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace Core
 {public static class Extensions
+
 {
+    
     public static Vector2Int GetCell2D(this Grid grid, GameObject gameObject)
     {
         Vector3 position = gameObject.transform.position;

@@ -14,13 +14,15 @@ public class PartyMember : ScriptableObject
     [SerializeField] private string displayName;
     [SerializeField] private GameObject actorPrefab;
     [SerializeField] private BattleStats stats;
-    [SerializeField] private Sprite portrait;
+    [SerializeField] private Sprite menuPortrait;
+    [SerializeField] private BattlePortrait battlePortrait;
     [SerializeField] private string job = "BAMF";
 
     public string Name => displayName;
     public GameObject ActorPrefab => actorPrefab;
     public BattleStats Stats => stats;
-    public Sprite Portrait => portrait;
+    public Sprite MenuPortrait => menuPortrait;
+    public BattlePortrait BattlePortrait => battlePortrait;
     public string Job => job;
     
 

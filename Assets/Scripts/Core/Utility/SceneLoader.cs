@@ -13,7 +13,12 @@ namespace Core
 
     public static void LoadBattleScene()
     {
+        Debug.Log("Loading Battle");
+        GameObject.DontDestroyOnLoad(Game.Manager.Map);
+
+        Debug.Log("Saving map");
         Game.Manager.Map.gameObject.SetActive(false);
+
         //caches the player's current info
         savedSceneBuildIndex = SceneManager.GetActiveScene().buildIndex;
         savedPlayerLocation = Game.Manager.Player.CurrentCell.Center2D();

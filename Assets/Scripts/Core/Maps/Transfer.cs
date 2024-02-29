@@ -20,7 +20,21 @@ namespace Core
        private void Awake() 
        {
             currentMap = FindObjectOfType<Map>();
-            exitCell = currentMap.Grid.GetCell2D(this.gameObject);
+            Debug.Log("Finding map");
+
+            if(currentMap == null)
+          {
+               Debug.LogError("No Map object found in the scene!");
+               return;
+          }
+    
+          if(currentMap.Grid == null)
+          {
+               Debug.LogError("Grid component is not assigned in the Map object!");
+               return;
+          }
+          exitCell = currentMap.Grid.GetCell2D(this.gameObject);
+
        }
 
        private void Start() 

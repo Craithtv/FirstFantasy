@@ -16,4 +16,4 @@ MonoBehaviour:
   enemyPacks:
   - {fileID: 11400000, guid: 9d053422714344741a42e3bb1a3d6e79, type: 2}
   - {fileID: 11400000, guid: 224eb316ab9a9434cba76fb91559b949, type: 2}
-  packEncounterRate: 1900000064000000
+  packEncounterRate: 3200000064000000

@@ -10,10 +10,12 @@ namespace Core
     public Grid Grid {get; private set;}
     public Dictionary<Vector2Int, MonoBehaviour> OccupiedCells {get; private set;}
     public Dictionary<Vector2Int, Transfer> Exits {get; private set;}
+    
     public BattleRegion Region => region;
 
     private void Awake() 
     {
+        Debug.Log("Getting grid");
         Grid = GetComponent<Grid>();
         OccupiedCells = new Dictionary<Vector2Int, MonoBehaviour>();
         Exits = new Dictionary<Vector2Int, Transfer>();

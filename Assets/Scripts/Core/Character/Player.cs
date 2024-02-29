@@ -23,22 +23,18 @@ namespace Core
     {
         base.Update();
         InputHandler.CheckInput();
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Game.Manager.EndBattle();
-        }
     }
 
     public void OnMovementFinished()
     {
-        if (map.Exits.ContainsKey(CurrentCell))
+        if (Map.Exits.ContainsKey(CurrentCell))
         {
-            Transfer transfer = map.Exits[CurrentCell];
+            Transfer transfer = Map.Exits[CurrentCell];
             transfer.TeleportPlayer();
+            return;
         }
-        if (map.Region != null)
-            map.Region.CheckForEncounter(map);
+        if (Map.Region != null)
+            Map.Region.CheckForEncounter(Map);
         
     }
 }

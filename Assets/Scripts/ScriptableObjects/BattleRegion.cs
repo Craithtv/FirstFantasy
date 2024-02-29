@@ -31,11 +31,13 @@ public class BattleRegion : ScriptableObject
     public void CheckForEncounter(Map map)
     {
         int random = Random.Range(1, 101);
+        
         if (random <= map.Region.EncounterChancePerStep)
-            {
+             {
                 EnemyPack enemyPack = GetRandomEnemyPack();
-                Game.Manager.StartCoroutine(Game.Manager.StartBattle(map.Region.GetRandomEnemyPack()));
+                Game.Manager.StartCoroutine(Game.Manager.StartBattle(enemyPack));
             }
+            
     }
     
 }

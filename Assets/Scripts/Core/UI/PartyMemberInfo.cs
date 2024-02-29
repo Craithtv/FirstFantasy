@@ -34,7 +34,7 @@ namespace Core
     {
         BattleStats stats = partyMember.Stats;
         memberName.text = partyMember.name;
-        memberPortrait.sprite = partyMember.Portrait;
+        memberPortrait.sprite = partyMember.MenuPortrait;
 
         string levelJob = $"Level {stats.LVL} {partyMember.Job}";
         memberLevelClass.text = levelJob;

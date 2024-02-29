@@ -11,6 +11,7 @@ namespace Battle
     //End battle when over
     
     [SerializeField] private List<Actor> turnOrder = new List<Actor>();
+    private TurnBar turnbar;
     private List<Ally> allies  = new List<Ally>();
     private List<Enemy> enemies = new List<Enemy>();
     [SerializeField] private int turnNumber = 0;
@@ -25,8 +26,12 @@ namespace Battle
 
     private void Awake() 
     {
+
+        turnbar = FindObjectOfType<TurnBar>();
         SpawnPartyMembers();
         SpawnEnemies();
+        turnbar.SpawnPortraitSlots(turnOrder);
+        turnbar.SpawnActorPortraits();
     }
 
     private void Update() 

@@ -8,6 +8,8 @@ public class EnemyData : ScriptableObject
 {
     [SerializeField] private GameObject actorPrefab;
     [SerializeField] private BattleStats stats;
+    [SerializeField] private BattlePortrait battlePortrait;
     public GameObject ActorPrefab => actorPrefab;
     public BattleStats Stats => stats;
+    public BattlePortrait BattlePortrait => battlePortrait;
 }
