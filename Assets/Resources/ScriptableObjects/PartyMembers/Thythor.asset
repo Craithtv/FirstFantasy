@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Thythor
   m_EditorClassIdentifier: 
   displayName: Thythor
-  actorPrefab: {fileID: 2077470670198663895, guid: 839153ebe9b28b547923c16abb8e88cc, type: 3}
+  actorPrefab: {fileID: 2077470670198663895, guid: 66f466fa9354a9a4f94ec399c3c522fd, type: 3}
   stats:
     level: 4
     hp: 0
@@ -22,5 +22,5 @@ MonoBehaviour:
     def: 13
     spd: 12
   menuPortrait: {fileID: 21300000, guid: e5dc697b9c8526a48831c0074a8212e6, type: 3}
-  battlePortrait: {fileID: 2637458699947672340, guid: ed03eb6e04f5cb04c808c05b96a560e1, type: 3}
+  battlePortrait: {fileID: 2637458699947672340, guid: a8b4be242af5bbc489f364ceea46d33b, type: 3}
   job: Warlock

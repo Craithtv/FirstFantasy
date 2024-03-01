@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Zaasher
   m_EditorClassIdentifier: 
   displayName: Zaasher
-  actorPrefab: {fileID: 2077470670198663895, guid: 839153ebe9b28b547923c16abb8e88cc, type: 3}
+  actorPrefab: {fileID: 2077470670198663895, guid: bdcc5e02356d4ee488738e459cec4e7e, type: 3}
   stats:
     level: 5
     hp: 31
@@ -22,5 +22,5 @@ MonoBehaviour:
     def: 14
     spd: 9
   menuPortrait: {fileID: 21300000, guid: aa02d92593c9f9842a393d55b949cbaf, type: 3}
-  battlePortrait: {fileID: 2637458699947672340, guid: ed03eb6e04f5cb04c808c05b96a560e1, type: 3}
+  battlePortrait: {fileID: 2637458699947672340, guid: 4ea00eab454014a4e826bf9d569955bb, type: 3}
   job: Fighter

@@ -22,6 +22,7 @@ namespace Battle
     public IReadOnlyList<Actor> TurnOrder => turnOrder;
     public IReadOnlyList<Ally> Allies => allies;
     public IReadOnlyList<Enemy> Enemies => enemies;
+    public int TurnNumber => turnNumber;
 
 
     private void Awake() 
