@@ -17,7 +17,7 @@ namespace Battle
     [SerializeField] private int turnNumber = 0;
     public static EnemyPack enemyPack;
 
-    private bool setupComplete = false;
+    public bool setupComplete = false;
 
     public IReadOnlyList<Actor> TurnOrder => turnOrder;
     public IReadOnlyList<Ally> Allies => allies;

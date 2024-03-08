@@ -19,7 +19,7 @@ MonoBehaviour:
     hp: 19
     maxHp: 32
     str: 14
-    def: 11
+    def: 10
     spd: 12
   menuPortrait: {fileID: 21300000, guid: 5d54509001bd9d840b67c567a69f7a89, type: 3}
   battlePortrait: {fileID: 2637458699947672340, guid: 507a742af7a477d4f9cfe508d0a38d07, type: 3}

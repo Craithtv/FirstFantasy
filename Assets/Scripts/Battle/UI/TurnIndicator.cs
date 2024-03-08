@@ -41,7 +41,7 @@ namespace Battle
         if(battleManager.TurnNumber == 0)
             speed = 3f;
         
-        rectTransform.position = Vector2.MoveTowards(currentPos, targetPos + new Vector2(0, -100), speed);
+        rectTransform.position = Vector2.MoveTowards(currentPos, targetPos + new Vector2(0, 0), speed);
             
     }
 }

@@ -10,17 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91cb8521ea2534c45920a9893fde2efe, type: 3}
-  m_Name: TestPack
+  m_Name: 2Wraith1
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 11400000, guid: 381961bb8c24e424c87875910bc3155d, type: 2}
   - {fileID: 11400000, guid: 381961bb8c24e424c87875910bc3155d, type: 2}
   - {fileID: 11400000, guid: 381961bb8c24e424c87875910bc3155d, type: 2}
   xSpawnCoordiantes:
   - 5
   - 5
-  - 5
   ySpawnCoordiantes:
   - -2
-  - 0
   - 2

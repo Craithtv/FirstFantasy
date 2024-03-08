@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 09020d2b20b438e439045b952fe138ab, type: 3}
-  m_Name: TestEnemy
+  m_Name: Wraith1
   m_EditorClassIdentifier: 
   actorPrefab: {fileID: 3712941884230655613, guid: 99c505e7111765e47badc410ca9b5bf8, type: 3}
   stats:
     level: 0
     hp: 5
     maxHp: 5
-    str: 2
+    str: 15
     def: 2
     spd: 7
   battlePortrait: {fileID: 2637458699947672340, guid: b70e7e86819878a458342f00971bb5c2, type: 3}

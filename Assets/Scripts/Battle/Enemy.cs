@@ -1,10 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 namespace Battle
 {public class Enemy : Actor
 {
-    //specific Actor for a party memb
+    private EnemyAI ai;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        ai = GetComponent<EnemyAI>();
+    }
 
     public override void StartTurn()
     {
@@ -16,6 +23,8 @@ namespace Battle
     {
         float elapsedTime = 0f;
 
+        Animator.Play("Moving");
+
         while ((Vector2)transform.position != battlePos)
         {
             transform.position = Vector2.Lerp(startingPos, battlePos, elapsedTime);
@@ -23,21 +32,22 @@ namespace Battle
             yield return null;
         }
 
+        Animator.Play("Idle");
+        yield return new WaitForSeconds(0.5f);
         StartCoroutine(EnemyChooseAction());
     }
 
     private IEnumerator EnemyChooseAction()
     {
-        while(true)
+        ICommand command;
+        command = ai.ChooseAction();
+        StartCoroutine(command.Execute());
+
+        while (!command.IsFinished)
         {
-            if (Input.GetKeyDown(KeyCode.C))
-            {
-                Debug.Log("Command entered");
-                break;
-            }
             yield return null;
         }
-        Debug.Log("Ended GetEnemyCommand");
+
         StartCoroutine(EndTurn());
     }
 
@@ -46,12 +56,27 @@ namespace Battle
          float elapsedTime = 0f;
          Vector2 currentPos = transform.position;
 
-         while ((Vector2)transform.position != startingPos)
+         Animator.Play("Moving");
+
+        while ((Vector2)transform.position != battlePos)
         {
-            transform.position = Vector2.Lerp(currentPos, startingPos, elapsedTime);
+            transform.position = Vector2.Lerp(currentPos, battlePos, elapsedTime);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+        
+        Animator.Play("Idle");
+        yield return new WaitForSeconds(0.5f);
+
+        elapsedTime = 0;
+        Animator.Play("Moving");
+        while ((Vector2)transform.position != startingPos)
+        {
+            transform.position = Vector2.Lerp(battlePos, startingPos, elapsedTime);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        Animator.Play(stateName: "Idle");
         IsTakingTurn = false;
     }
 }

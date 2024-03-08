@@ -16,7 +16,7 @@ MonoBehaviour:
   actorPrefab: {fileID: 2077470670198663895, guid: 66f466fa9354a9a4f94ec399c3c522fd, type: 3}
   stats:
     level: 4
-    hp: 0
+    hp: 22
     maxHp: 27
     str: 14
     def: 13

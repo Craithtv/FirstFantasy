@@ -16,10 +16,10 @@ MonoBehaviour:
   actorPrefab: {fileID: 2077470670198663895, guid: bdcc5e02356d4ee488738e459cec4e7e, type: 3}
   stats:
     level: 5
-    hp: 31
+    hp: 13
     maxHp: 34
     str: 16
-    def: 14
+    def: 9
     spd: 9
   menuPortrait: {fileID: 21300000, guid: aa02d92593c9f9842a393d55b949cbaf, type: 3}
   battlePortrait: {fileID: 2637458699947672340, guid: 4ea00eab454014a4e826bf9d569955bb, type: 3}
