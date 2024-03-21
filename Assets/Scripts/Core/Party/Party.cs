@@ -19,10 +19,10 @@ namespace Core
 
         private static void GenerateStartingParty()
         {
-            PartyMember Korb = Resources.Load<PartyMember>(Paths.Korb);
-            PartyMember Saph = Resources.Load<PartyMember>(Paths.Saph);
-            PartyMember Thy = Resources.Load<PartyMember>(Paths.Thy);
-            PartyMember Zaash = Resources.Load<PartyMember>(Paths.Zaash);
+            PartyMember Korb = ScriptableObject.Instantiate(Resources.Load<PartyMember>(Paths.Korb));
+            PartyMember Saph = ScriptableObject.Instantiate(Resources.Load<PartyMember>(Paths.Saph));
+            PartyMember Thy = ScriptableObject.Instantiate(Resources.Load<PartyMember>(Paths.Thy));
+            PartyMember Zaash = ScriptableObject.Instantiate(Resources.Load<PartyMember>(Paths.Zaash));
             AddActiveMember(Korb);
             AddActiveMember(Saph);
             AddActiveMember(Thy);

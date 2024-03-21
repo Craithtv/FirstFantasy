@@ -104,9 +104,9 @@ namespace Battle
         for(int i = 0; i < enemyPack.Enemies.Count; i++) 
         {
             Vector2 spawnPos = new Vector2 (enemyPack.XSpawnCoordinates[i], enemyPack.YSpawnCoordinates[i]);
-            GameObject enemyActor = Instantiate(enemyPack.Enemies[i].ActorPrefab, spawnPos, Quaternion.identity);
-            Enemy enemy = enemyActor.GetComponent<Enemy>();
-            enemy.Stats = enemyPack.Enemies[i].Stats;
+            EnemyData enemyData = Instantiate(enemyPack.Enemies[i]);
+            Enemy enemy = Instantiate(enemyData.ActorPrefab, spawnPos, Quaternion.identity).GetComponent<Enemy>();
+            enemy.Stats = enemyData.Stats;
 
             turnOrder.Add(enemy);
             enemies.Add(enemy);

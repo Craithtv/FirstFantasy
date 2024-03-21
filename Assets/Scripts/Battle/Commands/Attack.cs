@@ -25,7 +25,12 @@ namespace Battle
 
     public IEnumerator Execute()
     {
-        Vector3 targetPos = defenderTransform.position + attackOffset;
+        Vector3 targetPos;
+
+        if (attacker is Ally)
+            targetPos = defenderTransform.position - attackOffset;
+        else 
+            targetPos = defenderTransform.position + attackOffset;
 
         attacker.Animator.Play("Moving");
         while(attackerTransform.position != targetPos)
