@@ -27,7 +27,6 @@ namespace Battle
 
     private void Awake() 
     {
-
         turnbar = FindObjectOfType<TurnBar>();
         SpawnPartyMembers();
         SpawnEnemies();
@@ -40,6 +39,10 @@ namespace Battle
 
         if(!setupComplete)
         {
+            foreach(Enemy enemy in enemies)
+            {
+                enemy.WasDeafeated += OnDeath;
+            }
             DetermineTurnOrder();
         }
         if (TurnOrder[turnNumber].IsTakingTurn) return;
@@ -133,6 +136,19 @@ namespace Battle
     {
         turnNumber = (turnNumber+1) % turnOrder.Count;
         turnOrder[turnNumber].StartTurn();
+    }
+
+    private void OnDeath()
+    {
+        for(int i = enemies.Count - 1; i >=0; i--)
+        {
+            if(enemies[i].Stats.HP == 0)
+            {
+                enemies[i].WasDeafeated -= OnDeath;
+                turnOrder.Remove(enemies[i]);
+                enemies.Remove(enemies[i]);
+            }
+        }
     }
 }
 }
