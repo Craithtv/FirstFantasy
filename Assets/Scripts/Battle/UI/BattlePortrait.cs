@@ -7,6 +7,7 @@ namespace Battle
 {
     public class BattlePortrait : MonoBehaviour
 {
+    private static List<RectTransform> slotRects = new List<RectTransform>();
     private BattleManager battleManager;
     
     private RectTransform rectTransform;
@@ -14,10 +15,12 @@ namespace Battle
 
     private Actor actor;
 
-    private List<RectTransform> slotRects = new List<RectTransform>();
+
+    private float speed = 1.8f;
 
     private void Awake()
     {
+        slotRects.Clear();
         battleManager = FindObjectOfType<BattleManager>();
         rectTransform = GetComponent<RectTransform>();
         turnBar = FindObjectOfType<TurnBar>();
@@ -56,6 +59,7 @@ namespace Battle
     {
         (actor as Enemy).WasDeafeated -= RemovePortrait;
         GameObject slot = turnBar.Slots[actor.TurnNumber];
+        slotRects.Remove(slot.GetComponent<RectTransform>());
         Destroy(this.gameObject);
         Destroy(slot);
         turnBar.Slots.Remove(slot);

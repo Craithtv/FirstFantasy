@@ -42,8 +42,9 @@ namespace Battle
             foreach(Enemy enemy in enemies)
             {
                 enemy.WasDeafeated += OnDeath;
-            }
+            
             DetermineTurnOrder();
+            }
         }
         if (TurnOrder[turnNumber].IsTakingTurn) return;
 
@@ -129,7 +130,10 @@ namespace Battle
 
     private void CheckForEnd()
     {
-        //Look to see if all enemies dead
+        if(enemies.Count == 0)
+        {
+            Game.Manager.EndBattle();
+        }
     }
 
     private void GoToNextTurn()

@@ -86,7 +86,7 @@ namespace Battle
     private IEnumerator Die()
     {
         WasDeafeated -= OnDeath;
-        Animator.Play("Attack");
+        Animator.Play("Death");
         yield return null;
         while (Animator.IsAnimating())
             yield return null;
